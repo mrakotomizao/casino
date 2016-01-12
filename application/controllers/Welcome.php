@@ -15,17 +15,15 @@ class Welcome extends CI_Controller
     {
         $user = $this->facebook->getUser();
 
-        if ($user) {
+
+
+        try {
+            $data['user_profile'] = $this->facebook->api('/me');
             var_dump("YEAH");
-            try {
-                $data['user_profile'] = $this->facebook->api('/me');
-            } catch (FacebookApiException $e) {
-                $user = null;
-            }
-        } else {
-            var_dump("FUCKING DESTROY");
-            $this->facebook->destroySession();
+        } catch (FacebookApiException $e) {
+            $user = null;
         }
+
 
         if ($user) {
             $data['logout_url'] = site_url('welcome/logout'); // Logs off application
