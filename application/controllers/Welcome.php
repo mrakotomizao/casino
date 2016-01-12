@@ -6,33 +6,14 @@ class Welcome extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Facebook_model');
     }
 
     public function login()
     {
-        $user = $this->facebook->getUser();
-        var_dump($_SESSION);
+        $fb_data = $this->session->userdata('fb_data');
 
-        if ($user) {
-            try {
-                $data['user_profile'] = $this->facebook->api('/me');
-            } catch (FacebookApiException $e) {
-                $user = null;
-            }
-        } else {
-            $this->facebook->destroySession();
-        }
-
-        if ($user) {
-            $data['logout_url'] = site_url('welcome/logout'); // Logs off application
-
-        } else {
-            $data['login_url'] = $this->facebook->getLoginUrl(array(
-                'redirect_uri' => site_url(),
-                'scope' => array("email") // permissions here
-            ));
-        }
-        $this->load->view('welcome_message', $data);
+        $this->load->view('welcome_message', $fb_data);
 
     }
 
