@@ -97,7 +97,7 @@ $autoload['helper'] = array('url','utility');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array( 'facebook' );
+$autoload['config'] = array( 'Facebook' );
 
 /*
 | -------------------------------------------------------------------
