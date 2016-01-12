@@ -13,7 +13,6 @@ class Welcome extends CI_Controller
 
     public function login()
     {
-        $this->load->library('facebook'); // Automatically picks appId and secret from config
 
         $user = $this->facebook->getUser();
 
@@ -42,8 +41,6 @@ class Welcome extends CI_Controller
 
     public function logout()
     {
-
-        $this->load->library('facebook');
 
         // Logs off session from website
         $this->facebook->destroySession();

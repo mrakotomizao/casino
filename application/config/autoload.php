@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('session');
+$autoload['libraries'] = array('session','facebook');
 
 /*
 | -------------------------------------------------------------------
@@ -97,7 +97,7 @@ $autoload['helper'] = array('url','utility');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array( 'Facebook' );
+$autoload['config'] = array( 'facebook' );
 
 /*
 | -------------------------------------------------------------------
