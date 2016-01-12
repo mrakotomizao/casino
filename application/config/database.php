@@ -78,7 +78,7 @@ $whitelist = array(
     '::1'
 );
 if(!in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
-    $host = 'localhost';
+    $host = 'ec2-54-163-228-0.compute-1.amazonaws.com';
     $default = 'd1nttj2qfni6tg';
     $username = 'puecnxpywhyifz';
     $pwd = 'pONg0Qh-TgyhEJ-InlZigt9eCP';
