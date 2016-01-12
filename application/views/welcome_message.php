@@ -37,7 +37,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </h1>
     </header>
     <section class="bouton">
-        <?php var_dump($user_profile)?>
         <br/>
         <form action="<?= site_url('roulette') ?>" name="fbInfo" method="post">
             <?php if (@$user_profile):  // call var_dump($user_profile) to view all data ?>
