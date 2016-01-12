@@ -4,7 +4,6 @@ class Facebook_model extends CI_Model {
     public function __construct()
     {
         parent::__construct();
-
         $config = array(
             'appId'  => '465732286935321',
             'secret' => '5d257a6a5f959a91257983f139d7705b',
