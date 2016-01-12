@@ -13,18 +13,19 @@ class Welcome extends CI_Controller
 
     public function login()
     {
+        $this->load->library('facebook');
         $user = $this->facebook->getUser();
-
-
-
-        try {
-            $data['user_profile'] = $this->facebook->api('/me');
-            var_dump("YEAH");
-        } catch (FacebookApiException $e) {
-            var_dump($e);
-            $user = null;
+        var_dump($user);
+        var_dump($this->facebook);
+        if ($user) {
+            try {
+                $data['user_profile'] = $this->facebook->api('/me');
+            } catch (FacebookApiException $e) {
+                $user = null;
+            }
+        } else {
+            $this->facebook->destroySession();
         }
-
 
         if ($user) {
             $data['logout_url'] = site_url('welcome/logout'); // Logs off application
