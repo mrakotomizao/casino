@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = NULL;
+$config['base_url'] = 'https://projet-houlgate.herokuapp.com';
 
 /*
 |--------------------------------------------------------------------------
