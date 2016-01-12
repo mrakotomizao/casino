@@ -750,12 +750,10 @@ abstract class BaseFacebook
      */
     protected function getCode() {
         $server_info = array_merge($_GET, $_POST, $_COOKIE);
-
         if (isset($server_info['code'])) {
             if ($this->state !== null &&
                 isset($server_info['state']) &&
                 $this->state === $server_info['state']) {
-
                 // CSRF state has done its job, so clear it
                 $this->state = null;
                 $this->clearPersistentData('state');
@@ -765,7 +763,6 @@ abstract class BaseFacebook
                 return false;
             }
         }
-
         return false;
     }
 
