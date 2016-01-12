@@ -11,7 +11,8 @@ class Welcome extends CI_Controller
     public function login()
     {
         $user = $this->facebook->getUser();
-        var_dump($this->facebook);
+        var_dump($_SESSION);
+
         if ($user) {
             try {
                 $data['user_profile'] = $this->facebook->api('/me');
