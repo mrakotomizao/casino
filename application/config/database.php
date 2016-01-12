@@ -82,12 +82,14 @@ if(!in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
     $default = 'd1nttj2qfni6tg';
     $username = 'puecnxpywhyifz';
     $pwd = 'pONg0Qh-TgyhEJ-InlZigt9eCP';
+    $dbdriver = 'postgre';
 
 }else{
     $default = 'coco';
     $host = 'localhost';
     $username = 'root';
     $pwd = 'root';
+    $dbdriver = 'mysqli';
 }
 
 $db['default'] = array(
@@ -96,7 +98,7 @@ $db['default'] = array(
 	'username' => $username,
 	'password' => $pwd,
 	'database' => $default,
-	'dbdriver' => 'postgres',
+	'dbdriver' => $dbdriver,
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
