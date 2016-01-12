@@ -14,14 +14,16 @@ class Welcome extends CI_Controller
     public function login()
     {
         $user = $this->facebook->getUser();
-        var_dump($user);
+
         if ($user) {
+            var_dump("YEAH");
             try {
                 $data['user_profile'] = $this->facebook->api('/me');
             } catch (FacebookApiException $e) {
                 $user = null;
             }
         } else {
+            var_dump("FUCKING DESTROY");
             $this->facebook->destroySession();
         }
 
