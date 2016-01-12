@@ -15,7 +15,6 @@ class Welcome extends CI_Controller
     {
         $this->load->library('facebook');
         $user = $this->facebook->getUser();
-        var_dump($user);
         var_dump($this->facebook);
         if ($user) {
             try {
@@ -32,7 +31,7 @@ class Welcome extends CI_Controller
 
         } else {
             $data['login_url'] = $this->facebook->getLoginUrl(array(
-                'redirect_uri' => site_url('welcome/login'),
+                'redirect_uri' => site_url(),
                 'scope' => array("email") // permissions here
             ));
         }
