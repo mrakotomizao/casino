@@ -21,6 +21,7 @@ class Welcome extends CI_Controller
             $data['user_profile'] = $this->facebook->api('/me');
             var_dump("YEAH");
         } catch (FacebookApiException $e) {
+            var_dump($e);
             $user = null;
         }
 
