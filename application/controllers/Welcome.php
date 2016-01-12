@@ -17,7 +17,6 @@ class Welcome extends CI_Controller
         }
 
         var_dump($this->session);
-        var_dump($_SESSION);
         if ($user) {
             try {
                 $data['user_profile'] = $this->facebook->api('/me');

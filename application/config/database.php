@@ -78,16 +78,23 @@ $whitelist = array(
     '::1'
 );
 if(!in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
-    $default = '';
+    $host = 'localhost';
+    $default = 'd1nttj2qfni6tg';
+    $username = 'puecnxpywhyifz';
+    $pwd = 'pONg0Qh-TgyhEJ-InlZigt9eCP';
+
 }else{
     $default = 'coco';
+    $host = 'localhost';
+    $username = 'root';
+    $pwd = 'root';
 }
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'root',
+	'hostname' => $host,
+	'username' => $username,
+	'password' => $pwd,
 	'database' => $default,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
