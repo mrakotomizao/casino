@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
     <meta charset="UTF-8">
     <title>Application Casino</title>
-    <meta property="og:url" content="<?= site_url('welcome') ?>"/>
+    <meta property="og:url" content="<?= site_url('welcome/login') ?>"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Casino Houlogate"/>
     <meta property="og:description" content="Try our application and have some fun"/>
