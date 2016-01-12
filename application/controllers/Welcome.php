@@ -10,13 +10,8 @@ class Welcome extends CI_Controller
 
     public function login()
     {
-        try{
-            $user = $this->facebook->getUser();
-        } catch (FacebookApiException $e) {
-            var_dump($e->getMessage());
-        }
-
-        var_dump($this->session);
+        $user = $this->facebook->getUser();
+        var_dump($this->facebook);
         if ($user) {
             try {
                 $data['user_profile'] = $this->facebook->api('/me');
