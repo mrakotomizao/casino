@@ -6,16 +6,12 @@ class Welcome extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-
-        // To use site_url and redirect on this controller.
-        $this->load->helper('url');
     }
 
     public function login()
     {
-        $this->load->library('facebook');
         $user = $this->facebook->getUser();
-        var_dump($this->facebook);
+
         if ($user) {
             try {
                 $data['user_profile'] = $this->facebook->api('/me');
