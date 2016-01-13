@@ -23,12 +23,12 @@ class Welcome extends CI_Controller
                 $user = null;
             }
         } else {
-            //$this->facebook->destroySession();
+            $this->facebook->destroySession();
+            var_dump("<br />FUCK<br />");
         }
 
         if ($user) {
             $data['logout_url'] = site_url('welcome/logout'); // Logs off application
-
         } else {
             $data['login_url'] = $this->facebook->getLoginUrl(array(
                 'redirect_uri' => site_url(),
