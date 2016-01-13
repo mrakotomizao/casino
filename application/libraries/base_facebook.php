@@ -520,6 +520,7 @@ abstract class BaseFacebook
         $code = $this->getCode();
         if ($code && $code != $this->getPersistentData('code')) {
             $access_token = $this->getAccessTokenFromCode($code);
+            var_dump($code);
             var_dump($access_token);
             if ($access_token) {
                 $this->setPersistentData('code', $code);
