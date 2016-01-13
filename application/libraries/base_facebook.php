@@ -1332,7 +1332,6 @@ abstract class BaseFacebook
         $protocol = $this->getHttpProtocol() . '://';
         $host = $this->getHttpHost();
         $currentUrl = $protocol . $host . $_SERVER['REQUEST_URI'];
-        var_dump($currentUrl);
         $parts = parse_url($currentUrl);
 
         $query = '';
@@ -1356,7 +1355,6 @@ abstract class BaseFacebook
             (($protocol === 'http://' && $parts['port'] !== 80) ||
                 ($protocol === 'https://' && $parts['port'] !== 443))
                 ? ':' . $parts['port'] : '';
-        var_dump($parts);
         // rebuild
         return $protocol . $parts['host'] . $port . $parts['path'] . $query;
     }

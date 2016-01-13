@@ -49,6 +49,7 @@ class Utilisateur extends CI_Model
             ->where('id_util', $fbId)
             ->get($this->tableName)
             ->result();
-        var_dump($result);
+
+        return $result;
     }
 }
