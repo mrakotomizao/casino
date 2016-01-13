@@ -30,6 +30,7 @@ class Roulette extends CI_Controller
         $this->load->model('utilisateur', 'user');
 
         $user = (object)$this->facebook->api('/me');
+        var_dump($user);
 
         $fbid = $user->id;
         $nom = $user->last_name;
