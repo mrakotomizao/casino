@@ -12,9 +12,6 @@ class Welcome extends CI_Controller
     public function login()
     {
         $user = $this->facebook->getUser();
-/*        var_dump($_SESSION);
-        var_dump($this->session);
-        var_dump($_COOKIE);*/
 
         if ($user) {
             try {
@@ -30,7 +27,7 @@ class Welcome extends CI_Controller
             $data['logout_url'] = site_url('welcome/logout'); // Logs off application
         } else {
             $data['login_url'] = $this->facebook->getLoginUrl(array(
-                'redirect_uri' => site_url(),
+                'redirect_uri' => site_url('welcome/login'),
                 'scope' => array("email") // permissions here
             ));
         }
