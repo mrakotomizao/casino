@@ -27,7 +27,7 @@ class Welcome extends CI_Controller
             $data['logout_url'] = site_url('welcome/logout'); // Logs off application
         } else {
             $data['login_url'] = $this->facebook->getLoginUrl(array(
-                'redirect_uri' => site_url('welcome/login'),
+                'redirect_uri' => site_url(),
                 'scope' => array("email") // permissions here
             ));
         }
