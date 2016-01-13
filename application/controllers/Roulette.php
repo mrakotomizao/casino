@@ -41,8 +41,9 @@ class Roulette extends CI_Controller
 
         $this->user->setUtilisateur($fbid, $nom, $prenom, $pseudo, $email, $newsletter);
 
-        $total = $this->action->getSumVal($fbid);
-        $total = isset($total[0]) ? (empty($total[0]->valeur) ? $total[0]->valeur : 0) : 0;
+        $Objtotal = $this->action->getSumVal($fbid);
+        $total = isset($Objtotal[0]) ? (empty($Objtotal[0]->valeur) ? $Objtotal[0]->valeur : 0) : 0;
+        var_dump($total);
 
         $currentRanking = $this->getRanking($total);
 
@@ -50,7 +51,7 @@ class Roulette extends CI_Controller
          * ON RECUPERE LA DIFFERENCE ENTRE LE PALIER MIN ET NOTRE VALUE TOTAL
          * ELLE PERMETTRA DE DEFINIR L'AVANCEMENT
          */
-        $diff = abs($total[0]->valeur - $currentRanking->min);
+        $diff = abs($total - $currentRanking->min);
         $max = abs($currentRanking->max - $currentRanking->min);
         $nbaction = 3 - $this->getNbAction($fbid);
         $resultDaily = $this->getDailyPoint($fbid);
@@ -61,7 +62,7 @@ class Roulette extends CI_Controller
             'diff' => $diff,
             'rank' => $currentRanking,
             'max' => $max,
-            'total' => empty($total[0]->valeur) ? 0 : $total[0]->valeur,
+            'total' => empty($total) ? 0 : $total,
             'nbaction' => $nbaction,
             'dailyTotal' => $dailyTotal
         ];
