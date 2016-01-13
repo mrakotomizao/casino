@@ -12,9 +12,9 @@ class Welcome extends CI_Controller
     public function login()
     {
         $user = $this->facebook->getUser();
-        var_dump($_SESSION);
+/*        var_dump($_SESSION);
         var_dump($this->session);
-        var_dump($_COOKIE);
+        var_dump($_COOKIE);*/
 
         if ($user) {
             try {
