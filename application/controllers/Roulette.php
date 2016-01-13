@@ -22,30 +22,21 @@ class Roulette extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->output->enable_profiler(TRUE);
     }
 
     public function index()
     {
-        $this->load->model('action', 'action');
+        $this->load->model('action');
         $this->load->model('utilisateur', 'user');
 
-        $user = $this->facebook->api('/me');
+        $user = (object)$this->facebook->api('/me');
 
-        if(is_array($user)){
-            var_dump($user);
-            $fbid = $user['id'];
-            $nom = $user['last_name'];
-            $prenom = $user['first_name'];
-            $pseudo = $user['name'];
-            $email = $user['email'];
-        }else{
-            $fbid = $user->id;
-            $nom = $user->last_name;
-            $prenom = $user->first_name;
-            $pseudo = $user->name;
-            $email = $user->email;
-        }
-
+        $fbid = $user->id;
+        $nom = $user->last_name;
+        $prenom = $user->first_name;
+        $pseudo = $user->name;
+        $email = $user->email;
         $newsletter = $this->input->post('newsletter');
 
         $this->user->setUtilisateur($fbid, $nom, $prenom, $pseudo, $email, $newsletter);
