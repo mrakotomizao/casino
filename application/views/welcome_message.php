@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     Cochez cette case si vous souhaitez recevoir notre newsletter
                 </label>
             <?php else: ?>
-                <a id="submit-index" href="<?= $loginUrl ?>"><span class="bouton_fb">Connexion</span></a>
+                <a id="submit-index" href="<?= $login_url ?>"><span class="bouton_fb">Connexion</span></a>
             <?php endif; ?>
         </form>
     </section>
