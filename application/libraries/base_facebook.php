@@ -523,8 +523,6 @@ abstract class BaseFacebook
         $code = $this->getCode();
         if ($code && $code != $this->getPersistentData('code')) {
             $access_token = $this->getAccessTokenFromCode($code);
-            var_dump($code);
-            var_dump($access_token);
             if ($access_token) {
                 $this->setPersistentData('code', $code);
                 $this->setPersistentData('access_token', $access_token);
@@ -1436,7 +1434,7 @@ abstract class BaseFacebook
             error_log($msg);
         }
         // uncomment this if you want to see the errors on the page
-        // print 'error_log: '.$msg."\n";
+        print 'error_log: '.$msg."\n";
         // @codeCoverageIgnoreEnd
     }
 
