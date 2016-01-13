@@ -42,7 +42,7 @@ class Roulette extends CI_Controller
         $this->user->setUtilisateur($fbid, $nom, $prenom, $pseudo, $email, $newsletter);
 
         $Objtotal = $this->action->getSumVal($fbid);
-        $total = isset($Objtotal[0]) ? (empty($Objtotal[0]->valeur) ? $Objtotal[0]->valeur : 0) : 0;
+        $total = isset($Objtotal[0]) ? (empty($Objtotal[0]->valeur) ? 0:$Objtotal[0]->valeur ) : 0;
         var_dump($total);
 
         $currentRanking = $this->getRanking($total);
