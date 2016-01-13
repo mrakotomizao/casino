@@ -42,7 +42,8 @@ class Roulette extends CI_Controller
         $this->user->setUtilisateur($fbid, $nom, $prenom, $pseudo, $email, $newsletter);
 
         $total = $this->action->getSumVal($fbid);
-        var_dump($total);
+        $total = isset($total[0]) ? (empty($total[0]->valeur) ? $total[0]->valeur : 0) : 0;
+
         $currentRanking = $this->getRanking($total[0]->valeur);
 
         /*
@@ -54,15 +55,15 @@ class Roulette extends CI_Controller
         $nbaction = 3 - $this->getNbAction($fbid);
         $resultDaily = $this->getDailyPoint($fbid);
 
-        $dailyTotal = empty($resultDaily[0]->valeur)?0:$resultDaily[0]->valeur;
+        $dailyTotal = empty($resultDaily[0]->valeur) ? 0 : $resultDaily[0]->valeur;
         $data = [
-            'fbId'          => $fbid,
-            'diff'          => $diff,
-            'rank'          => $currentRanking,
-            'max'           => $max,
-            'total'         => empty($total[0]->valeur) ? 0 : $total[0]->valeur,
-            'nbaction'      => $nbaction,
-            'dailyTotal'    => $dailyTotal
+            'fbId' => $fbid,
+            'diff' => $diff,
+            'rank' => $currentRanking,
+            'max' => $max,
+            'total' => empty($total[0]->valeur) ? 0 : $total[0]->valeur,
+            'nbaction' => $nbaction,
+            'dailyTotal' => $dailyTotal
         ];
 
         $this->load->view('roulette', $data);
@@ -74,7 +75,6 @@ class Roulette extends CI_Controller
         $this->load->model('rang', 'rank');
 
         $allRank = $this->rank->getAll();
-        var_dump($allRank);
         if (isset($allRank)) {
             if (empty($total)) {
                 $currentRanking = $allRank[0];
@@ -134,10 +134,10 @@ class Roulette extends CI_Controller
         return $this->action->getDailyAction($iduser);
     }
 
-    public function getDailyPoint($iduser=null)
+    public function getDailyPoint($iduser = null)
     {
         $this->load->model('action', 'action');
-        $fbid = empty($iduser)?$this->input->post('fbid'):$iduser;
+        $fbid = empty($iduser) ? $this->input->post('fbid') : $iduser;
 
         if ($this->input->is_ajax_request()) {
             echo json_encode($this->action->getDailyPoint($fbid));
