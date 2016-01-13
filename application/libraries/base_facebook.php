@@ -1,7 +1,5 @@
 <?php
 
-ini_set('display_error',1);
-error_reporting(E_ALL);
 /**
  * Copyright 2011 Facebook, Inc.
  *
@@ -65,8 +63,6 @@ class FacebookApiException extends Exception
         } else {
             $msg = 'Unknown Error. Check getResult()';
         }
-        var_dump($result);
-
         parent::__construct($msg, $code);
     }
 
@@ -1353,7 +1349,7 @@ abstract class BaseFacebook
                 $query = '?' . implode($retained_params, '&');
             }
         }
-
+        var_dump($parts);
         // use port if non default
         $port =
             isset($parts['port']) &&
