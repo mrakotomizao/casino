@@ -14,6 +14,7 @@ class Welcome extends CI_Controller
         $user = $this->facebook->getUser();
         var_dump($_SESSION);
         var_dump($this->session);
+        var_dump($_COOKIE);
 
         if ($user) {
             try {
