@@ -754,6 +754,7 @@ abstract class BaseFacebook
      */
     protected function getCode() {
         $server_info = array_merge($_GET, $_POST, $_COOKIE);
+        var_dump($_GET, $_POST, $_COOKIE, $_SESSION);
         if (isset($server_info['code'])) {
             if ($this->state !== null &&
                 isset($server_info['state']) &&
