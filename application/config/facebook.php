@@ -7,4 +7,4 @@
  */
 $config['appId'] = '465732286935321';
 $config['secret'] = '5d257a6a5f959a91257983f139d7705b';
-$config['allowSignedRequest'] = false;
+$config['trustForwarded'] = true;

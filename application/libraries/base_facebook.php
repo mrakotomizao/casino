@@ -1329,7 +1329,7 @@ abstract class BaseFacebook
      */
     protected function getCurrentUrl()
     {
-        $protocol = $this->getHttpProtocol() . 's://';
+        $protocol = $this->getHttpProtocol() . '://';
         $host = $this->getHttpHost();
         $currentUrl = $protocol . $host . $_SERVER['REQUEST_URI'];
         var_dump($currentUrl);
