@@ -29,14 +29,22 @@ class Roulette extends CI_Controller
         $this->load->model('action', 'action');
         $this->load->model('utilisateur', 'user');
 
-        $user = (object)$this->facebook->api('/me');
+        $user = $this->facebook->api('/me');
         var_dump($user);
+        if(is_array($user)){
+            $fbid = $user['id'];
+            $nom = $user['last_name'];
+            $prenom = $user['first_name'];
+            $pseudo = $user['name'];
+            $email = $user['email'];
+        }else{
+            $fbid = $user->id;
+            $nom = $user->last_name;
+            $prenom = $user->first_name;
+            $pseudo = $user->name;
+            $email = $user->email;
+        }
 
-        $fbid = $user->id;
-        $nom = $user->last_name;
-        $prenom = $user->first_name;
-        $pseudo = $user->name;
-        $email = $user->email;
         $newsletter = $this->input->post('newsletter');
 
         $this->user->setUtilisateur($fbid, $nom, $prenom, $pseudo, $email, $newsletter);
