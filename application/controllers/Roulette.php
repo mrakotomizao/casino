@@ -52,7 +52,7 @@ class Roulette extends CI_Controller
          * ELLE PERMETTRA DE DEFINIR L'AVANCEMENT
          */
         $diff = abs($total - $currentRanking->min);
-        $max = abs($currentRanking->max - $currentRanking->minf);
+        $max = abs($currentRanking->max - $currentRanking->min);
         $nbaction = 3 - $this->getNbAction($fbid);
         $resultDaily = $this->getDailyPoint($fbid);
 
@@ -72,9 +72,9 @@ class Roulette extends CI_Controller
 
     public function getRanking($val = null)
     {
-        $total = (int)$val!==0 && empty($val) ? $this->input->post('total') : $val;
+        $total = $val === null ? $this->input->post('total') : $val;
         $this->load->model('rang', 'rank');
-
+        var_dump($total);
         $allRank = $this->rank->getAll();
         if (isset($allRank)) {
             if (empty($total)) {
