@@ -94,11 +94,11 @@ if(!in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => $host,
-	'username' => $username,
-	'password' => $pwd,
-	'database' => $default,
-	'dbdriver' => $dbdriver,
+	'hostname' => 'ec2-54-163-228-0.compute-1.amazonaws.com',
+	'username' => 'puecnxpywhyifz',
+	'password' => 'pONg0Qh-TgyhEJ-InlZigt9eCP',
+	'database' => 'd1nttj2qfni6tg',
+	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

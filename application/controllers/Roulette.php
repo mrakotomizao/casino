@@ -41,6 +41,7 @@ class Roulette extends CI_Controller
         $this->user->setUtilisateur($fbid, $nom, $prenom, $pseudo, $email, $newsletter);
 
         $total = $this->action->getSumVal($fbid);
+        var_dump($total);
         $currentRanking = $this->getRanking($total[0]->valeur);
 
         /*
@@ -70,6 +71,7 @@ class Roulette extends CI_Controller
     {
         $total = empty($val) ? $this->input->post('total') : $val;
         $this->load->model('rang', 'rank');
+
         $allRank = $this->rank->getAll();
         var_dump($allRank);
         if (isset($allRank)) {
