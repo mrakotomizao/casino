@@ -1,4 +1,7 @@
 <?php
+
+ini_set('display_error',1);
+error_reporting(E_ALL);
 /**
  * Copyright 2011 Facebook, Inc.
  *
