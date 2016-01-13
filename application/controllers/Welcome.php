@@ -6,13 +6,14 @@ class Welcome extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->output->enable_profiler(TRUE);
     }
 
     public function login()
     {
         $user = $this->facebook->getUser();
+        var_dump($_SESSION);
         var_dump($this->session);
-        var_dump($_COOKIE);
 
         if ($user) {
             try {
