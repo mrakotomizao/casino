@@ -24,7 +24,6 @@ class Welcome extends CI_Controller
             }
         } else {
             $this->facebook->destroySession();
-            var_dump("<br />FUCK<br />");
         }
 
         if ($user) {
