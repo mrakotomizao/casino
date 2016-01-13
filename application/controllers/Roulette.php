@@ -42,9 +42,9 @@ class Roulette extends CI_Controller
         $this->user->setUtilisateur($fbid, $nom, $prenom, $pseudo, $email, $newsletter);
 
         $total = $this->action->getSumVal($fbid);
-        $total = isset($total[0]->valeur) ? (empty($total[0]->valeur) ? $total[0]->valeur : 0) : 0;
+        $total = isset($total[0]) ? (empty($total[0]->valeur) ? $total[0]->valeur : 0) : 0;
 
-        $currentRanking = $this->getRanking($total[0]->valeur);
+        $currentRanking = $this->getRanking($total);
 
         /*
          * ON RECUPERE LA DIFFERENCE ENTRE LE PALIER MIN ET NOTRE VALUE TOTAL
