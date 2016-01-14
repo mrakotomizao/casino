@@ -58,7 +58,7 @@ class Action extends CI_Model
     //FONCTION QUI RECUPERE EN BDD LE NOMBRE DE POINT DU JOUR
     public function getDailyPoint($id)
     {
-        $condition = [
+/*        $condition = [
             'id_util' => $id,
         ];
         $condition_like = [
@@ -69,8 +69,11 @@ class Action extends CI_Model
             ->where($condition)
             ->like($condition_like)
             ->get($this->tableName)
-            ->result();
+            ->result();*/
+        $query = "SELECT SUM('valeur') FROM actions WHERE id_util = $id AND date::TEXT LIKE '%" . date('Y-m-d') . "%'";
+        $request = $this->db->query($query)->result();
 
-        return $daillySum;
+
+        return $request;
     }
 }
