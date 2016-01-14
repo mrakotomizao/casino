@@ -45,7 +45,7 @@ class Action extends CI_Model
             'date::TEXT' =>date('Y-m-d')
         ];*/
         $query = "SELECT * FROM actions WHERE id_util = $id AND date::TEXT LIKE '%" . date('Y-m-d') . "%'";
-        $request = $this->db->query($query)->result();
+        $request = $this->db->query($query)->num_rows();
         /*$request = $this->db->select('*')
             ->where($condition)
             ->like($condition_like)
