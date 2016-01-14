@@ -43,7 +43,6 @@ class Roulette extends CI_Controller
 
         $Objtotal = $this->action->getSumVal($fbid);
         $total = isset($Objtotal[0]) ? (empty($Objtotal[0]->valeur) ? 0:$Objtotal[0]->valeur ) : 0;
-        var_dump($total);
 
         $currentRanking = $this->getRanking($total);
 
