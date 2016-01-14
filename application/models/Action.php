@@ -70,7 +70,7 @@ class Action extends CI_Model
             ->like($condition_like)
             ->get($this->tableName)
             ->result();*/
-        $query = "SELECT SUM('valeur') FROM actions WHERE id_util = $id AND date::TEXT LIKE '%" . date('Y-m-d') . "%'";
+        $query = "SELECT SUM(valeur) FROM actions WHERE id_util = $id AND date::TEXT LIKE '%" . date('Y-m-d') . "%'";
         $request = $this->db->query($query)->result();
 
 
