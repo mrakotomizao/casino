@@ -74,10 +74,8 @@ class Roulette extends CI_Controller
     {
         $total = $val === null ? $this->input->post('total') : $val;
         $this->load->model('rang', 'rank');
-        var_dump($total);
-        $allRank = $this->rank->getAll();
-        var_dump($allRank);
 
+        $allRank = $this->rank->getAll();
         if (isset($allRank)) {
             if (empty($total)) {
                 $currentRanking = $allRank[0];

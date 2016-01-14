@@ -42,7 +42,7 @@ class Action extends CI_Model
             'id_util' => $id
         ];
         $condition_like = [
-            'date' => date('Y-m-d')
+            'date::TEXT' => date('Y-m-d')
         ];
 
 
